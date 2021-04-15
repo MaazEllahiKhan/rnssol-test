@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import './Dashboard.css'
 import { deviceData } from './../../assets/raw-data/device-data'
 import { loginData } from './../../assets/raw-data/login-record'
@@ -8,6 +8,8 @@ import { CreateGlobalContext } from "../../context/GlobalContext";
 import axios from "axios";
 
 const Dashboard = () => {
+
+    const [deviceDataList, setDeviceDataList] = useState<any>(deviceData)
 
     const {
         userData,
@@ -92,10 +94,16 @@ const Dashboard = () => {
                                     </div>
                                     <div className="col-11 border"></div>
                                     <div className="col-12 mt-2">
-                                        <TableComponent showActions={true} dataList={deviceData}
+                                        <TableComponent showActions={true} dataList={deviceDataList}
                                             headerList={['Device', 'location', 'Latest Time of Activity', 'IP Address']}
                                             onDeleteClicked={(id) => {
                                                 console.log('id', id);
+                                                const index = deviceDataList.findIndex((d: any) => d.id === id)
+                                                if(index) {
+                                                    deviceDataList.splice(index, 1);
+                                                     console.log('deviceDataList', deviceDataList)
+                                                    setDeviceDataList([...deviceDataList])
+                                                }
                                             }} />
                                     </div>
                                 </div>

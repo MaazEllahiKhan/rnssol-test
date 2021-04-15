@@ -9,8 +9,9 @@ import logIn from './pages/LogIn/LogIn';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container } from 'react-bootstrap';
+import { CreateGlobalContext } from './context/GlobalContext';
 // import AlertTemplate from "react-alert-template-basic";
 
 const options = {
@@ -45,6 +46,11 @@ const AlertTemplate = (props: any) => (
 )
 
 function App() {
+
+  const {
+    token
+  } = useContext(CreateGlobalContext)
+
   return (
     <Container fluid className="d-flex">
       {/* <HashRouter> */}
@@ -54,7 +60,10 @@ function App() {
             <Route exact path="/" ><Redirect to="/login" /></Route>
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/login" component={logIn} />
-            <Route path='/dashboard'  component={DefaultLayout} />
+            {/* {token && */}
+              <Route path='/dashboard' component={DefaultLayout} />
+            {/* } */}
+
             <Route path='*' exact={true} component={NotFound} />
           </Switch>
         </BrowserRouter>

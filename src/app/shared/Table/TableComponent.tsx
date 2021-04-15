@@ -28,7 +28,7 @@ const TableComponent = (props: AppProps) => {
             </thead>
             <tbody>
                 {props.dataList && props.dataList.map((item: any) => {
-                    return (
+                    return item && (
                         <tr>
                             {Object.keys(item).map((keyName, i) => {
                                 return keyName !== 'id' && (
