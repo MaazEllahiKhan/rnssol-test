@@ -1,0 +1,25 @@
+.rotated-half-circle {
+    /* Create the circle */
+    width: 140px;
+    height: 140px;
+    border: 10px solid #ffa90c;
+    border-radius: 50%;
+    /* Halve the circle */
+    border-bottom-color: #e6e2e2;
+    /* Rotate the circle */
+    transform: rotate(133deg);
+}
+
+.small-label-square {
+    width: 10px;
+    height: 10px;
+    background-color: orange;
+    margin-right: 8px;
+}
+
+.small-label-square-white {
+    width: 10px;
+    height: 10px;
+    background-color: #e6e2e2;
+    margin-right: 8px;
+}
