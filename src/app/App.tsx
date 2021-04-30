@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
 import AuthLayout from './layouts/AuthLayout/AuthLayout';
 import DefaultLayout from './layouts/DefaultLayout/DefaultLayout';
 import { transitions, positions, Provider as AlertProvider } from 'react-alert'
@@ -55,18 +55,20 @@ function App() {
     <Container fluid className="d-flex">
       {/* <HashRouter> */}
       <AlertProvider template={AlertTemplate} {...options}>
-        <BrowserRouter>
+        <HashRouter>
           <Switch>
-            <Route exact path="/" ><Redirect to="/login" /></Route>
+
+            <Route exact path="/" ><Redirect to="/anime" /></Route>
+            <Route path='/' component={DefaultLayout} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/login" component={logIn} />
             {/* {token && */}
-              <Route path='/dashboard' component={DefaultLayout} />
+
             {/* } */}
 
             <Route path='*' exact={true} component={NotFound} />
           </Switch>
-        </BrowserRouter>
+        </HashRouter>
       </AlertProvider>
 
       {/* </HashRouter> */}

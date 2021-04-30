@@ -3,6 +3,7 @@ import GlobalContext from "../../context/GlobalContext"
 import { Route, Switch } from "react-router-dom";
 import Dashboard from "../../pages/Dashboard/Dashboard";
 import Header from "./../../shared/Header/Header"
+import AnimationPage from "../../pages/Animation/AnimationPage";
 
 const DefaultLayout = (props: any) => {
     return (
@@ -12,10 +13,13 @@ const DefaultLayout = (props: any) => {
             </Switch> */}
             <div className="vh-100 flex-fill">
                 <div className="row">
-                    {/* <div className="col-12 col-md-6 p-4 border"> */}
-                        <Header />
-                        <Dashboard />
-                    {/* </div> */}
+                    <Header />
+                    <Switch>
+                        <Route exact path="/dashboard" component={Dashboard} />
+                        <Route path="/anime" component={AnimationPage} />
+
+
+                    </Switch>
                 </div>
             </div>
 
