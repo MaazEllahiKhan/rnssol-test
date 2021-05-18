@@ -55,7 +55,7 @@ const AnimationPage = () => {
         <div className="el" />
       </div>
       <div className="basic-staggering-demo ">
-        <button onClick={() => animationRef2.current.restart()}>Restart</button>
+        <button onClick={() => animationRef2.current.restart()}>Restart another one</button>
         <div className="el mb-1" />
         <div className="el mb-1" />
         <div className="el mb-1" />
